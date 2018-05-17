@@ -3,7 +3,7 @@
 """
     tests.controllers.test_api_controller
 
-    
+
 """
 
 import jsonpickle
@@ -64,8 +64,8 @@ class APIControllerTests(ControllerTestBase):
         expected_headers['content-type'] = None
 
         self.assertTrue(TestHelper.match_headers(expected_headers, self.response_catcher.response.headers))
-
         
+
         # Test whether the captured response is as we expected
         self.assertIsNotNone(result)
         expected_body = APIHelper.json_deserialize((
@@ -79,5 +79,3 @@ class APIControllerTests(ControllerTestBase):
             ))
         received_body = APIHelper.json_deserialize(self.response_catcher.response.raw_body)
         self.assertTrue(TestHelper.match_body(expected_body, received_body, check_values = True))
-
-
