@@ -3,7 +3,7 @@
 """
     message_media_webhooks.message_media_webhooks_client
 
-    This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
+    
 """
 from .decorators import lazy_property
 from .configuration import Configuration

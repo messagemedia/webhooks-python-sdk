@@ -3,7 +3,7 @@
 """
     message_media_webhooks.controllers.api_controller
 
-    This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
+
 """
 
 import logging
@@ -25,7 +25,7 @@ class APIController(BaseController):
     def create(self,
                 content_type,
                 body):
-        """Does a POST request to /v1/webooks/messages.
+        """Does a POST request to /v1/webhooks/messages.
 
         This will create a webhook for the specified `events`
         ### Parameters
@@ -75,11 +75,11 @@ class APIController(BaseController):
             </ul>
 
         Args:
-            content_type (string): TODO: type description here. Example: 
-            body (CreateRequest): TODO: type description here. Example: 
+            content_type (string): TODO: type description here. Example:
+            body (CreateRequest): TODO: type description here. Example:
 
         Returns:
-            mixed: Response from the API. 
+            mixed: Response from the API.
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -90,20 +90,20 @@ class APIController(BaseController):
         """
         try:
             self.logger.info('create called.')
-    
+
             # Prepare query URL
             self.logger.info('Preparing query URL for create.')
             _query_builder = Configuration.base_uri
-            _query_builder += '/v1/webooks/messages'
+            _query_builder += '/v1/webhooks/messages'
             _query_url = APIHelper.clean_url(_query_builder)
-    
+
             # Prepare headers
             self.logger.info('Preparing headers for create.')
             _headers = {
                 'accept': 'application/json',
                 'Content-Type': content_type
             }
-    
+
             # Prepare and execute request
             self.logger.info('Preparing and executing request for create.')
             _request = self.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
@@ -115,7 +115,7 @@ class APIController(BaseController):
             if _context.response.status_code == 400:
                 raise APIException('', _context)
             self.validate_response(_context)
-    
+
             # Return appropriate type
             return APIHelper.json_deserialize(_context.response.raw_body)
 
@@ -125,7 +125,7 @@ class APIController(BaseController):
 
     def delete_delete_and_update_webhook(self,
                                          webhook_id):
-        """Does a DELETE request to /v1/webooks/messages/{webhookId}.
+        """Does a DELETE request to /v1/webhooks/messages/{webhookId}.
 
         This will delete the webhook wuth the give id.
         a **Response 404 is returned when** :
@@ -134,10 +134,10 @@ class APIController(BaseController):
             </ul>
 
         Args:
-            webhook_id (uuid|string): TODO: type description here. Example: 
+            webhook_id (uuid|string): TODO: type description here. Example:
 
         Returns:
-            void: Response from the API. 
+            void: Response from the API.
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -148,16 +148,16 @@ class APIController(BaseController):
         """
         try:
             self.logger.info('delete_delete_and_update_webhook called.')
-    
+
             # Prepare query URL
             self.logger.info('Preparing query URL for delete_delete_and_update_webhook.')
             _query_builder = Configuration.base_uri
-            _query_builder += '/v1/webooks/messages/{webhookId}'
-            _query_builder = APIHelper.append_url_with_template_parameters(_query_builder, { 
+            _query_builder += '/v1/webhooks/messages/{webhookId}'
+            _query_builder = APIHelper.append_url_with_template_parameters(_query_builder, {
                 'webhookId': webhook_id
             })
             _query_url = APIHelper.clean_url(_query_builder)
-    
+
             # Prepare and execute request
             self.logger.info('Preparing and executing request for delete_delete_and_update_webhook.')
             _request = self.http_client.delete(_query_url)
@@ -177,7 +177,7 @@ class APIController(BaseController):
     def retrieve(self,
                  page=None,
                  page_size=None):
-        """Does a GET request to /v1/webooks/messages/.
+        """Does a GET request to /v1/webhooks/messages/.
 
         This will retrieve all webhooks for the account we're connected with.
         a **Response 400 is returned when** :
@@ -187,11 +187,11 @@ class APIController(BaseController):
             </ul>
 
         Args:
-            page (int, optional): TODO: type description here. Example: 
-            page_size (int, optional): TODO: type description here. Example: 
+            page (int, optional): TODO: type description here. Example:
+            page_size (int, optional): TODO: type description here. Example:
 
         Returns:
-            RetrieveResponse: Response from the API. 
+            RetrieveResponse: Response from the API.
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -202,11 +202,11 @@ class APIController(BaseController):
         """
         try:
             self.logger.info('retrieve called.')
-    
+
             # Prepare query URL
             self.logger.info('Preparing query URL for retrieve.')
             _query_builder = Configuration.base_uri
-            _query_builder += '/v1/webooks/messages/'
+            _query_builder += '/v1/webhooks/messages/'
             _query_parameters = {
                 'page': page,
                 'pageSize': page_size
@@ -214,13 +214,13 @@ class APIController(BaseController):
             _query_builder = APIHelper.append_url_with_query_parameters(_query_builder,
                 _query_parameters, Configuration.array_serialization)
             _query_url = APIHelper.clean_url(_query_builder)
-    
+
             # Prepare headers
             self.logger.info('Preparing headers for retrieve.')
             _headers = {
                 'accept': 'application/json'
             }
-    
+
             # Prepare and execute request
             self.logger.info('Preparing and executing request for retrieve.')
             _request = self.http_client.get(_query_url, headers=_headers)
@@ -232,7 +232,7 @@ class APIController(BaseController):
             if _context.response.status_code == 400:
                 raise APIException('', _context)
             self.validate_response(_context)
-    
+
             # Return appropriate type
             return APIHelper.json_deserialize(_context.response.raw_body, RetrieveResponse.from_dictionary)
 
@@ -244,9 +244,9 @@ class APIController(BaseController):
                 webhook_id,
                 content_type,
                 body):
-        """Does a PATCH request to /v1/webooks/messages/{webhookId}.
+        """Does a PATCH request to /v1/webhooks/messages/{webhookId}.
 
-        This will update a webhook and returned the updated Webhook. 
+        This will update a webhook and returned the updated Webhook.
         you can update all the attributes individually or together.
         PS : the new value will override the previous one.
         ### Parameters
@@ -254,7 +254,7 @@ class APIController(BaseController):
          a **Response 404 is returned when** :
             <ul>
              <li>there is no webhook with this `webhookId` </li>
-            </ul>   
+            </ul>
          a **Response 400 is returned when** :
             <ul>
               <li>all attributes are null </li>
@@ -264,12 +264,12 @@ class APIController(BaseController):
             </ul>
 
         Args:
-            webhook_id (uuid|string): TODO: type description here. Example: 
-            content_type (string): TODO: type description here. Example: 
-            body (UpdateRequest): TODO: type description here. Example: 
+            webhook_id (uuid|string): TODO: type description here. Example:
+            content_type (string): TODO: type description here. Example:
+            body (UpdateRequest): TODO: type description here. Example:
 
         Returns:
-            void: Response from the API. 
+            void: Response from the API.
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -280,22 +280,22 @@ class APIController(BaseController):
         """
         try:
             self.logger.info('update called.')
-    
+
             # Prepare query URL
             self.logger.info('Preparing query URL for update.')
             _query_builder = Configuration.base_uri
-            _query_builder += '/v1/webooks/messages/{webhookId}'
-            _query_builder = APIHelper.append_url_with_template_parameters(_query_builder, { 
+            _query_builder += '/v1/webhooks/messages/{webhookId}'
+            _query_builder = APIHelper.append_url_with_template_parameters(_query_builder, {
                 'webhookId': webhook_id
             })
             _query_url = APIHelper.clean_url(_query_builder)
-    
+
             # Prepare headers
             self.logger.info('Preparing headers for update.')
             _headers = {
                 'Content-Type': content_type
             }
-    
+
             # Prepare and execute request
             self.logger.info('Preparing and executing request for update.')
             _request = self.http_client.patch(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
