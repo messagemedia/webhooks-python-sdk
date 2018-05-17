@@ -7,6 +7,7 @@
 """
 
 import unittest
+import os
 from ..http_response_catcher import HttpResponseCatcher
 from message_media_webhooks.message_media_webhooks_client import MessageMediaWebhooksClient
 from message_media_webhooks.configuration import Configuration
