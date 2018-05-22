@@ -3,7 +3,7 @@
 """
     message_media_webhookscontrollers.base_controller
 
-    
+    This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
 """
 
 from ..api_helper import APIHelper
@@ -32,7 +32,7 @@ class BaseController(object):
     http_call_back = None
 
     global_headers = {
-        'user-agent': 'messagemedia-webhooks-python-sdk-1.0.0'
+        'user-agent': 'messagesmedia-webhooks'
     }
 
     def __init__(self, client=None, call_back=None):

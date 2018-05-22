@@ -3,19 +3,19 @@
 """
     message_media_webhooks.message_media_webhooks_client
 
-    
+    This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
 """
 from .decorators import lazy_property
 from .configuration import Configuration
-from .controllers.api_controller import APIController
+from .controllers.webhooks_controller import WebhooksController
 
 class MessageMediaWebhooksClient(object):
 
     config = Configuration
 
     @lazy_property
-    def client(self):
-        return APIController()
+    def webhooks(self):
+        return WebhooksController()
 
 
     def __init__(self, 
