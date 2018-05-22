@@ -1,7 +1,4 @@
 __all__ = [
-    'retrieve_response',
-    'update_request_15',
-    'headers',
-    'update_request',
-    'create_request',
+    'create_webhook_request',
+    'update_webhook_request',
 ]

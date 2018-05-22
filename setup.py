@@ -9,7 +9,7 @@ except(IOError, ImportError):
 
 setup(
     name='message_media_webhooks',
-    version='1.0.0',
+    version='1.4.0',
     description='TODO: Add a description',
     long_description=long_description,
     author='APIMatic SDK Generator',
