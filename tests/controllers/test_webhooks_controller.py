@@ -50,17 +50,30 @@ class WebhooksControllerTests(ControllerTestBase):
     #}
     #```
     #*Note: Only pre-created webhooks can be deleted. If an invalid or non existent webhook ID parameter is specified in the request, then a HTTP 404 Not Found response will be returned.*
-    def test_update_webhook_1(self):
+
+    def test_retrieve_1(self):
         # Parameters for the API call
-        webhook_id = 'a7f11bb0-f299-4861-a5ca-9b29d04bc5ad'
-        body = APIHelper.json_deserialize((
-            '{"url":"https://myurl.com","method":"POST","encoding":"FORM_ENCODED","event'
-            's":["ENROUTE_DR"],"template":"{\"id\":\"$mtId\", \"status\":\"$statusCode\"'
-            '}"}'
-            ), UpdateWebhookRequest.from_dictionary)
+        page = '1'
+        page_size = '10'
 
         # Perform the API call through the SDK function
-        result = self.controller.update_webhook(webhook_id, body)
+        result = self.controller.retrieve(page, page_size)
 
         # Test response code
-        self.assertEquals(self.response_catcher.response.status_code, 404)
+        self.assertEquals(self.response_catcher.response.status_code, 200)
+
+
+    # def test_update_webhook_1(self):
+    #     # Parameters for the API call
+    #     webhook_id = 'a7f11bb0-f299-4861-a5ca-9b29d04bc5ad'
+    #     body = APIHelper.json_deserialize((
+    #         '{"url":"https://myurl.com","method":"POST","encoding":"FORM_ENCODED","event'
+    #         's":["ENROUTE_DR"],"template":"{\"id\":\"$mtId\", \"status\":\"$statusCode\"'
+    #         '}"}'
+    #         ), UpdateWebhookRequest.from_dictionary)
+    #
+    #     # Perform the API call through the SDK function
+    #     result = self.controller.update_webhook(webhook_id, body)
+    #
+    #     # Test response code
+    #     self.assertEquals(self.response_catcher.response.status_code, 404)
