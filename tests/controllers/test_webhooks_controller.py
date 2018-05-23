@@ -24,15 +24,15 @@ class WebhooksControllerTests(ControllerTestBase):
     # Delete a webhook that was previously created for the connected account.
     #A webhook can be cancelled by appending the UUID of the webhook to the endpoint and submitting a DELETE request to the /webhooks/messages endpoint.
     #*Note: Only pre-created webhooks can be deleted. If an invalid or non existent webhook ID parameter is specified in the request, then a HTTP 404 Not Found response will be returned.*
-    def test_delete_webhook_1(self):
-        # Parameters for the API call
-        webhook_id = 'a7f11bb0-f299-4861-a5ca-9b29d04bc5ad'
-
-        # Perform the API call through the SDK function
-        self.controller.delete_webhook(webhook_id)
-
-        # Test response code
-        self.assertEquals(self.response_catcher.response.status_code, 404)
+    # def test_delete_webhook_1(self):
+    #     # Parameters for the API call
+    #     webhook_id = 'a7f11bb0-f299-4861-a5ca-9b29d04bc5ad'
+    #
+    #     # Perform the API call through the SDK function
+    #     self.controller.delete_webhook(webhook_id)
+    #
+    #     # Test response code
+    #     self.assertEquals(self.response_catcher.response.status_code, 404)
 
     # Update a webhook. You can update individual attributes or all of them by submitting a PATCH request to the /webhooks/messages endpoint (the same endpoint used above to delete a webhook)
     #A successful request to the retrieve webhook endpoint will return a response body as follows:
@@ -50,17 +50,6 @@ class WebhooksControllerTests(ControllerTestBase):
     #}
     #```
     #*Note: Only pre-created webhooks can be deleted. If an invalid or non existent webhook ID parameter is specified in the request, then a HTTP 404 Not Found response will be returned.*
-
-    def test_retrieve_1(self):
-        # Parameters for the API call
-        page = '1'
-        page_size = '10'
-
-        # Perform the API call through the SDK function
-        result = self.controller.retrieve(page, page_size)
-
-        # Test response code
-        self.assertEquals(self.response_catcher.response.status_code, 200)
 
 
     # def test_update_webhook_1(self):
